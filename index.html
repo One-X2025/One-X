@@ -1,85 +1,116 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>مؤسسة OneX | مستقبل البلوكتشين النزيه</title>
+  <meta charset="UTF-8" />
+  <title>OneX - الصفحة الرسمية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background-color: #0e0e0e;
-      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
     }
+
     header {
-      background-color: #111;
-      padding: 15px 30px;
+      background: #0a0a0a;
+      padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      color: white;
     }
-    header img {
-      height: 40px;
-    }
-    nav a {
-      color: #00ffcc;
-      text-decoration: none;
-      margin: 0 10px;
+
+    .logo {
+      font-size: 1.7em;
       font-weight: bold;
-      font-size: 15px;
+      color: #1c7ed6;
     }
-    nav {
-      display: flex;
-      gap: 10px;
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
     }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     .hero {
+      background-color: #0d1117;
+      color: white;
+      text-align: center;
       padding: 80px 20px;
-      text-align: center;
     }
+
     .hero h1 {
-      font-size: 32px;
-      color: #00ffcc;
+      color: #1c7ed6;
+      font-size: 2.8em;
+      margin-bottom: 10px;
     }
+
     .hero p {
-      max-width: 600px;
+      color: #cbd5e1;
+      font-size: 1.2em;
+      max-width: 700px;
       margin: auto;
-      font-size: 18px;
     }
+
+    .hero .note {
+      font-size: 0.9em;
+      color: #888;
+      margin-top: 20px;
+    }
+
     footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #f1f3f5;
       text-align: center;
-      padding: 30px;
-      background-color: #111;
-      color: #aaa;
-      font-size: 14px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="assets/OneX-logo-dark.png" alt="شعار OneX">
+    <div class="logo">💠 OneX</div>
     <nav>
-      <a href="#">الرئيسية</a>
-      <a href="#">حول العملة</a>
-      <a href="#">المحفظة</a>
-      <a href="#">تسجيل الدخول</a>
-      <a href="#">الأسئلة الشائعة</a>
-      <a href="#">اتصل بنا</a>
+      <a href="wallet.html">محفظتي</a>
+      <a href="faq.html">الأسئلة الشائعة</a>
+      <a href="network.html">شبكة OneX</a>
+      <a href="buy.html">شراء العملة</a>
+      <a href="contact.html">اتصل بنا</a>
+      <a href="https://discord.gg/your-code" target="_blank">Discord</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>مرحبًا بك في مؤسسة OneX</h1>
+    <h1>مرحبًا بك في شبكة OneX</h1>
     <p>
-      نقدم لك OneX — شبكة بلوكتشين صديقة للبيئة، سريعة، وعادلة...  
-      تهدف إلى تحويل الطريقة التي ننقل بها القيمة في العالم الرقمي  
-      وتوفير نظام مالي أكثر شفافية للجميع.
+      OneX هي عملة رقمية عربية تعتمد على بلوكتشين سريع وآمن، تم تصميمه ليكون لامركزيًا وعادلًا.  
+      نُمكّن المجتمع من تشغيل العقد، التعدين، والتداول بحرية تامة — بينما تدير المؤسسة التوزيع والشفافية.
     </p>
+    <p class="note">🛠️ تسجيل المستخدمين النشطين والمؤسسات سيتم إضافته قريبًا إلى نظام الشبكة</p>
   </section>
 
   <footer>
-    &copy; 2025 مؤسسة OneX. جميع الحقوق محفوظة.
+    جميع الحقوق محفوظة © OneX – شبكة عملة رقمية لامركزية  
+    <br>يتم تشغيل هذا الموقع عبر GitHub Pages لتوفير أعلى درجات الأمان والشفافية 🔐
   </footer>
 
 </body>
