@@ -66,6 +66,20 @@
       <li>(قريبًا) ربط مع MetaMask أو WalletConnect</li>
     </ul>
   </div>
+<script src="wallet.js"></script>
+<script>
+  // زر: إنشاء محفظة
+  document.querySelectorAll('button')[0].onclick = () => {
+    const pass = document.querySelectorAll('input[type="password"]')[0].value;
+    createWallet(pass);
+  };
 
+  // زر: استيراد محفظة
+  document.querySelectorAll('button')[1].onclick = () => {
+    const pk = document.querySelector('textarea').value;
+    const pass = document.querySelectorAll('input[type="password"]')[1].value;
+    importWallet(pk, pass);
+  };
+</script>
 </body>
 </html>
