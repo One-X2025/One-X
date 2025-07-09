@@ -1,5 +1,3 @@
-// wallet.js
-
 async function hashPassword(password) {
   const enc = new TextEncoder();
   const keyMaterial = await crypto.subtle.importKey(
@@ -77,8 +75,65 @@ async function importWallet(pk, password) {
   alert("🔑 تم استيراد المحفظة:\n" + address);
 }
 
-async function getDecryptedKey(password) {
+async function decryptWallet(password) {
   const saved = JSON.parse(localStorage.getItem("onex_wallet"));
   if (!saved) return null;
-  return await decryptPrivateKey(saved.encryptedKey, password);
+  const pk = await decryptPrivateKey(saved.encryptedKey, password);
+  return { address: saved.address, privateKey: pk };
 }
+
+async function handleCreate() {
+  const pass = document.getElementById("newPass").value;
+  if (!pass) return alert("⚠️ أدخل كلمة مرور قوية");
+  await createWallet(pass);
+}
+
+async function handleImport() {
+  const pk = document.getElementById("importKey").value;
+  const pass = document.getElementById("importPass").value;
+  if (!pk || !pass) return alert("⚠️ أدخل المفتاح وكلمة المرور");
+  await importWallet(pk, pass);
+}
+
+async function handleLogin() {
+  const pass = document.getElementById("loginPass").value;
+  const result = await decryptWallet(pass);
+  document.getElementById("loginResult").textContent = result
+    ? `✅ العنوان: ${result.address}`
+    : "❌ كلمة مرور خاطئة أو لا توجد محفظة محفوظة";
+}
+
+function downloadWallet() {
+  const data = localStorage.getItem("onex_wallet");
+  if (!data) return alert("⚠️ لا يوجد محفظة محفوظة");
+  const blob = new Blob([data], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "onex-wallet.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// 💱 حاسبة سعر ONEX
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("amountOnex");
+  const output = document.getElementById("converted");
+
+  input.addEventListener("input", async () => {
+    const amount = parseFloat(input.value);
+    if (!amount || amount <= 0) {
+      output.textContent = "0.00";
+      return;
+    }
+
+    try {
+      const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=onex&vs_currencies=usd");
+      const data = await res.json();
+      const price = data.onex?.usd || 0.125; // سعر افتراضي لو API فشل
+      output.textContent = (amount * price).toFixed(2);
+    } catch (e) {
+      output.textContent = "0.00";
+    }
+  });
+});
