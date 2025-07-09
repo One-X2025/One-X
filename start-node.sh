@@ -1,12 +1,15 @@
 #!/bin/bash
+echo "🚀 بدء تشغيل عقدة OneX..."
 
-echo "🚀 Bootstrapping OneX Node..."
-echo "📁 Using genesis configuration: ./genesis/genesis.json"
-echo "🧱 Initializing data directory: ./data"
+CONFIG="config.yaml"
+GENESIS=$(grep genesis_file $CONFIG | awk '{print $2}')
+DATA=$(grep data_dir $CONFIG | awk '{print $2}')
+PORT=$(grep port $CONFIG | awk '{print $2}')
 
-mkdir -p ./data
+mkdir -p $DATA
+echo "📦 تحميل Genesis: $GENESIS"
+echo "🟢 تشغيل العقدة على المنفذ $PORT"
 
-cp ./genesis/genesis.json ./data/
-
-echo "✅ Node initialized with genesis file."
-echo "🕒 Ready for future validator setup & block generation..."
+# (محاكاة تشغيل — استبدل بالأمر الفعلي لاحقًا)
+echo "✅ تمت تهيئة البيانات داخل $DATA"
+echo "🌐 العقدة تعمل الآن على المنفذ $PORT"
