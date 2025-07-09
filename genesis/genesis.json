@@ -1,15 +1,14 @@
 {
   "chainId": "onex-mainnet",
-  "genesisTime": "2025-10-01T00:00:00Z",
-  "blockTimeSeconds": 600,
-  "initialRewardPerBlock": 50,
-  "rewardHalvingPeriodYears": 4,
-  "maxSupply": 20000000,
   "accounts": {
-    "0xInstitutionWalletAddressHere": {
-      "balance": 5000000
-    }
+    "0x1111111111111111111111111111111111111111": { "balance": 5000000 },
+    "0x2222222222222222222222222222222222222222": { "balance": 1500000 },
+    "0x3333333333333333333333333333333333333333": { "balance": 1000000 }
   },
-  "validators": [],
-  "notes": "This genesis file defines the launch configuration for OneX blockchain"
+  "validators": [
+    {
+      "address": "0x3333333333333333333333333333333333333333",
+      "stake": 25000
+    }
+  ]
 }
