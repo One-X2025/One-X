@@ -1,18 +1,12 @@
 #!/bin/bash
+echo "🔐 توليد محفظة جديدة..."
 
-echo "🔐 Generating OneX Wallet..."
+PRIVATE_KEY=$(xxd -l 32 -p /dev/urandom)
+ADDRESS="0x${PRIVATE_KEY:0:40}"
 
-# Generate private key (simulated)
-PRIVATE_KEY=$(openssl rand -hex 32)
+echo "📥 المفتاح الخاص: $PRIVATE_KEY"
+echo "💼 العنوان: $ADDRESS"
 
-# Generate public address (simplified - not production grade)
-ADDRESS="0x$(echo $PRIVATE_KEY | cut -c1-40)"
-
-# Save to wallet.json
-echo "{" > wallet.json
-echo "  \"address\": \"$ADDRESS\"," >> wallet.json
-echo "  \"private_key\": \"$PRIVATE_KEY\"" >> wallet.json
-echo "}" >> wallet.json
-
-echo "✅ Wallet created:"
-echo "📫 Address: $ADDRESS"
+# حفظ البيانات داخل wallet.json
+echo "{ \"address\": \"$ADDRESS\", \"privateKey\": \"$PRIVATE_KEY\" }" > wallet.json
+echo "✅ تم حفظ المحفظة داخل wallet.json"
