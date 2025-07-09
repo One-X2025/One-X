@@ -1,0 +1,15 @@
+# OneX Blockchain Configuration
+
+network: onex-mainnet
+genesis_file: ./genesis/genesis.json
+data_directory: ./data
+rpc:
+  enabled: true
+  port: 8501
+p2p:
+  port: 30401
+enable_mining: true
+block_time_seconds: 600
+initial_reward_per_block: 50
+reward_halving_period_years: 4
+log_level: info
