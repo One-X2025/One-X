@@ -1,8 +1,0 @@
-network:
-  chain_id: onex-mainnet
-  genesis_file: genesis/genesis.json
-  data_dir: data/
-  port: 8501
-
-wallet:
-  file: wallet.json
