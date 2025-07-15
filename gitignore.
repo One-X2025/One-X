@@ -1,0 +1,6 @@
+node_data/
+*.log
+*.zip
+*.tar.gz
+geth
+geth.b64
