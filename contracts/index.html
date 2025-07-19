@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>OneX – عملة رقمية عادلة ومقفلة</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: Tahoma, Arial;
+      text-align: center;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .contract {
+      font-family: monospace;
+      background-color: #222;
+      padding: 10px;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    h1, h2 {
+      color: #0af;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h1>🔷 OneX</h1>
+    <p>عملة رقمية عادلة ومقفلة – الفرصة الثانية لمن فاتتهم بداية البتكوين</p>
+  </div>
+
+  <div class="section">
+    <h2>📜 معلومات التوكن</h2>
+    <p>
+      الاسم: <strong>OneX</strong><br>
+      الرمز: <strong>ONE</strong><br>
+      العدد الكلي: <strong>20,000,000</strong>
+    </p>
+    <div>
+      عنوان العقد:
+      <div class="contract" id="contract">0x...ضع عنوان العقد هنا...</div>
+      <button onclick="copyAddress()">📋 نسخ عنوان العقد</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📲 إضافة التوكن إلى Trust Wallet</h2>
+    <p>
+      افتح تطبيق Trust Wallet<br>
+      اضغط على أيقونة البحث ← Add Custom Token<br>
+      ثم أدخل البيانات التالية:<br><br>
+      • Network: Ethereum<br>
+      • Contract: عنوان العقد أعلاه<br>
+      • Name: OneX<br>
+      • Symbol: ONE<br>
+      • Decimals: 18
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>💬 التواصل والشراء</h2>
+    <p>
+      Telegram: @OneXToken<br>
+      GitHub: <a href="https://github.com/One-X2025/One-X" target="_blank">مستودع OneX</a><br>
+      يمكنك التواصل معنا لأي استفسار أو طلب شراء مباشر
+    </p>
+  </div>
+
+  <script>
+    function copyAddress() {
+      const addr = document.getElementById("contract").innerText;
+      navigator.clipboard.writeText(addr);
+      alert("✅ تم نسخ عنوان العقد إلى الحافظة");
+    }
+  </script>
+</body>
+</html>
